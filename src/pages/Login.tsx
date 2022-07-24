@@ -3,15 +3,14 @@ import React, { useState } from 'react';
 import {
   useHistory
 } from "react-router-dom";
-import './Login.css';
 
 const Login: React.FC = () => {
   //const [text, setText] = useState<string>();
   let history = useHistory();
 
   const [logUsuario, setLogUsuario] = useState({
-		email: '',
-		password: '',
+		email: 'admin@correo.com',
+		password: 'Qaws12pj-22',
 	})
 	const handleChangeUsuario = (name:string, value:string) => setLogUsuario({...logUsuario, [name]: value })
     
@@ -45,13 +44,13 @@ const Login: React.FC = () => {
         <IonList>
           <IonItem>
             <IonLabel position="floating">Correo</IonLabel>
-            <IonInput onIonChange={e => handleChangeUsuario('email', e.detail.value||'')} ></IonInput>
+            <IonInput value={logUsuario.email} onIonChange={e => handleChangeUsuario('email', e.detail.value||'')} ></IonInput>
           </IonItem>
           <IonItem>
             <IonLabel position="floating">Contraseña</IonLabel>
-            <IonInput type='password' onIonChange={e => handleChangeUsuario('password', e.detail.value||'')} ></IonInput>
+            <IonInput value={logUsuario.password} type='password' onIonChange={e => handleChangeUsuario('password', e.detail.value||'')} ></IonInput>
           </IonItem>
-          <IonButton color="primary" onClick={ () => authenticateUser(logUsuario.email, logUsuario.password) }>Iniciar Session</IonButton>
+          <IonButton color="primary" expand="full" onClick={ () => authenticateUser(logUsuario.email, logUsuario.password) }>Iniciar Session</IonButton>
         </IonList>
       </IonContent>
     </IonPage>

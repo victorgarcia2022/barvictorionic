@@ -6,8 +6,6 @@ import {
   setupIonicReact
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import Login from './pages/Login';
-import Productos from './pages/Productos';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -27,6 +25,11 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import Login from './pages/Login';
+import Productos from './pages/Productos';
+import ProductoFormulario from './pages/ProductoFormulario';
+import Pedidos from './pages/Pedidos';
+import PedidoFormulario from './pages/PedidoFormulario';
 
 setupIonicReact();
 
@@ -43,6 +46,21 @@ const App: React.FC = () => {
           </Route>
           <Route exact path="/productos">
             <Productos />
+          </Route>
+          <Route exact path="/productos/crear">
+            <ProductoFormulario />
+          </Route>
+          <Route exact path="/productos/editar/:id">
+            <ProductoFormulario />
+          </Route>
+          <Route exact path="/pedidos">
+            <Pedidos />
+          </Route>
+          <Route exact path="/pedidos/crear">
+            <PedidoFormulario />
+          </Route>
+          <Route exact path="/pedidos/editar/:id">
+            <PedidoFormulario />
           </Route>
         </IonRouterOutlet>
       </IonReactRouter>
