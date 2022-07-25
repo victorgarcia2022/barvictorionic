@@ -9,8 +9,8 @@ const Login: React.FC = () => {
   let history = useHistory();
 
   const [logUsuario, setLogUsuario] = useState({
-		email: 'admin@correo.com',
-		password: 'Qaws12pj-22',
+		email: '',
+		password: '',
 	})
 	const handleChangeUsuario = (name:string, value:string) => setLogUsuario({...logUsuario, [name]: value })
     

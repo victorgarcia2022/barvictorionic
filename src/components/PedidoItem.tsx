@@ -5,11 +5,11 @@ import { Pedido } from '../models/pedido.model';
 
 const PedidoItem: React.FC<{pedido: Pedido}> = ({pedido}) => {
 
-  let items
-  items = JSON.stringify(pedido.descripcion)
-  items = JSON.parse(items)
-  for ( let i=0; i < items.length; i++ ){
-    items.push(<span key={i}>&nbsp;&nbsp;- {items[i].nombre} Valor: {items[i].valor}<br/></span>);
+  let items = [], myjson;
+  myjson = JSON.stringify(pedido.descripcion)
+  myjson = JSON.parse(myjson)
+  for ( let i=0; i < myjson.length; i++ ){
+    items.push(<span key={i}>&nbsp;&nbsp;- {myjson[i].nombre} Valor: {myjson[i].valor}<br/></span>);
   }
 
   return (
