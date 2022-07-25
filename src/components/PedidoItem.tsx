@@ -20,7 +20,7 @@ const PedidoItem: React.FC<{pedido: Pedido}> = ({pedido}) => {
       <IonLabel>
         <h2>&nbsp;&nbsp;Mesa N° : {pedido.mesa}</h2>
         <h5>&nbsp;&nbsp;Descripción: <br/>
-          {items}
+        
         </h5>
         <h6>&nbsp;&nbsp;Total: <span>$ {pedido.total}</span></h6>
       </IonLabel>
