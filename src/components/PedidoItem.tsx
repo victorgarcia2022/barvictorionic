@@ -5,10 +5,12 @@ import { Pedido } from '../models/pedido.model';
 
 const PedidoItem: React.FC<{pedido: Pedido}> = ({pedido}) => {
 
-  let items = []
-  // for ( let i=0; i < pedido.descripcion.length; i++ ){
-  //   items.push(<span key={i}>&nbsp;&nbsp;- {pedido.descripcion[i].nombre}<br/></span>);
-  // }
+  let items
+  items = JSON.stringify(pedido.descripcion)
+  items = JSON.parse(items)
+  for ( let i=0; i < items.length; i++ ){
+    items.push(<span key={i}>&nbsp;&nbsp;- {items[i].nombre} Valor: {items[i].valor}<br/></span>);
+  }
 
   return (
     <IonItem routerLink={`/pedidos/editar/${pedido.id}`} detail={false}>
@@ -18,7 +20,7 @@ const PedidoItem: React.FC<{pedido: Pedido}> = ({pedido}) => {
       <IonLabel>
         <h2>&nbsp;&nbsp;Mesa N° : {pedido.mesa}</h2>
         <h5>&nbsp;&nbsp;Descripción: <br/>
-          {pedido.descripcion}          
+          {items}
         </h5>
         <h6>&nbsp;&nbsp;Total: <span>$ {pedido.total}</span></h6>
       </IonLabel>
